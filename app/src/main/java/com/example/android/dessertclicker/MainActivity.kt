@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
+    private lateinit var dessertTimer : DessertTimer;
 
     /** Dessert Data **/
 
@@ -68,6 +69,8 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("MainActivity", "onCreate Called")
         Timber.i("onCreate called")
+
+        dessertTimer = DessertTimer()
 
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -153,8 +156,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        dessertTimer.startTimer()
 
-        Timber.i("onStart Called")
+        Timber.i("onStart called")
     }
     override fun onResume() {
         super.onResume()
